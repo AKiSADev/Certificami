@@ -81,8 +81,10 @@ public class Utente implements Serializable {
 	@Column(name = "data_documento")
 	private LocalDate dataDocumento;
 	
-	
+	@Column(name = "e_mail")
+	private String eMail;
 
+	
 	public Long getIdUtente() {
 		return idUtente;
 	}

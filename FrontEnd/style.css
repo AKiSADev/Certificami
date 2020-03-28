@@ -11,6 +11,11 @@ body {
   background-size: cover;
 }
 
+.for-height-limitator {
+  max-height: 47vh;
+  overflow-y: scroll;
+}
+
 .card-container {
   background: #ffffff;
   border-radius: 16px;
@@ -107,4 +112,13 @@ label {
 
 .forgot-password:hover {
   color: #504881;
+}
+
+.step-count {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.important {
+  font-weight: 600;
 }

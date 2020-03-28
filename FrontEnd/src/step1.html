@@ -11,35 +11,68 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="step.css">
     <script type="text/javascript" src="step.js"></script>
+    <link rel="stylesheet" href="../style.css">
   </head>
   <body>
 
-
-
-    
+    <div class="flex-center-center-container">
       <div class="container p-2 p-md-5">
-            <form class="rounded border border-secondary p-2 p-md-4">
-              <h4 class="ml-2 text-muted">Step 1 di 3</h4>
+            <form class="card-container p-2 p-md-4">
+              <p class="ml-2 mb-2 text-muted step-count">Step 1 di 3</p>
               <h3 class="ml-2 mb-2 mb-md-3">I tuoi dati personali</h3>
-              <div class="form-group">
-                <label  class="ml-2"for="exampleInputEmail1">Il sottoscritto</label>
-                <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Nome Cognome">
-              </div>
-              <div class="form-group">
-                <label  class="ml-2"for="exampleInputEmail1">Nato il</label>
-                <input type="date" class="form-control" id="GG/MM/YYYY" aria-describedby="nomeHelp" placeholder="Nome Cognome">
-              </div>
-              <div class="form-group">
-                <label  class="ml-2"for="exampleInputEmail1">A</label>
-                <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Nome città">
-              </div>
-              <div class="form-group">
-                <label  class="ml-2"for="exampleInputEmail1">Residente in</label>
-                <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Nome città">
+              <div class="for-height-limitator">
+                <p class="ml-2 mb-4">I campi da compilare sono molti e richiedono un po di pazienza ma a differenza di quelli catacei dovrai compilarli una sola volta.</p>
+                <p class="important ml-2 mb-4">NB: tutti i campi sono obbligatori</p>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">Il sottoscritto</label>
+                  <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Nome Cognome">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">Nato il</label>
+                  <input type="date" class="form-control" id="GG/MM/YYYY" aria-describedby="nomeHelp" placeholder="Nome Cognome">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">A</label>
+                  <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Nome città">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">In provincia di</label>
+                  <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Es: TN">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">Residente in</label>
+                  <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Nome città">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">Provincia di residenza</label>
+                  <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Es: TN">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">In via</label>
+                  <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Es: Via venezia 12">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">Documento identificazione</label>
+                  <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Carta d'identita/patente/passaporto">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">Rilasciato da</label>
+                  <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="comune, sindaco, prefetto, motorizzazione">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">In data</label>
+                  <input type="date" class="form-control" id="GG/MM/YYYY" aria-describedby="nomeHelp">
+                </div>
+                <div class="form-group">
+                  <label  class="ml-2"for="exampleInputEmail1">Utenza telefonica</label>
+                  <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Il tuo numero di telefono">
+                </div>
               </div>
                 <div class="col col-12 col-md-6">
-                  <a type="submit" href="src/register.html"class="btn btn-outline-secondary btn-block my-2 my-md-1 text-decoration-none">Avanti</a></div>
+                  <a type="submit" href="src/register.html"class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none">Avanti</a>
+                </div>
             </form>      
       </div>
+    </div>
   </body>
 </html>

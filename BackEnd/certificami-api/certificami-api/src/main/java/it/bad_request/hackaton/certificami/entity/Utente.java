@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -66,11 +68,13 @@ public class Utente implements Serializable {
 	@Column(name = "comune_domicilio")
 	private String comuneDomicilio;
 	
-//	@Column(name = "tipo_utente")
-//	private TipoUtente tipoUtente;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "tipo_utente")
+	private TipoUtente tipoUtente;
 	
-//	@Column(name = "tipo_documento")
-//	private Documento tipoDocumento;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "tipo_documento")
+	private Documento tipoDocumento;
 	
 	@Column(name = "numero_documento")
 	private String numeroDocumento;

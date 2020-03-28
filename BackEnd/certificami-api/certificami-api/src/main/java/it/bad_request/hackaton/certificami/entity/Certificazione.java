@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -60,7 +61,8 @@ public class Certificazione implements Serializable {
 	@Column(name = "data_ora_validazione")
 	private LocalDateTime dataValidazione;
 	
-	@Column(name = "id_utente_controllore")
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_utente_controllore")
 	private Utente utenteControllore;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -132,13 +134,6 @@ public class Certificazione implements Serializable {
 		this.provvedimento = provvedimento;
 	}
 
-//	public Motivazione getMotivazione() {
-//		return motivazione;
-//	}
-//
-//	public void setMotivazione(Motivazione motivazione) {
-//		this.motivazione = motivazione;
-//	}
 
 	public String getDichiarazione() {
 		return dichiarazione;

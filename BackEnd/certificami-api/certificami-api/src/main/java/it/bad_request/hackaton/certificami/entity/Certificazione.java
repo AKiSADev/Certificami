@@ -43,8 +43,9 @@ public class Certificazione implements Serializable {
 	@Column(name = "provvedimento")
 	private String provvedimento;
 
-//	@Column(name = "motivazione")
-//	private Motivazione motivazione;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "motivazione") 
+	private Motivazione motivazione;
 	
 	
 	@Column(name = "dichiara_che")
@@ -62,8 +63,9 @@ public class Certificazione implements Serializable {
 	@Column(name = "id_utente_controllore")
 	private Utente utenteControllore;
 	
-//	@Column(name = "tipo_documento")
-//	private Documento documento;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "tipo_documento")
+	private Documento documento;
 	
 	@Column(name = "numero_documento")
 	private String numeroDocumento;
@@ -178,13 +180,13 @@ public class Certificazione implements Serializable {
 		this.utenteControllore = utenteControllore;
 	}
 
-//	public Documento getDocumento() {
-//		return documento;
-//	}
-//
-//	public void setDocumento(Documento documento) {
-//		this.documento = documento;
-//	}
+	public Documento getDocumento() {
+		return documento;
+	}
+
+	public void setDocumento(Documento documento) {
+		this.documento = documento;
+	}
 
 	public String getNumeroDocumento() {
 		return numeroDocumento;
@@ -213,14 +215,14 @@ public class Certificazione implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-//
-//	public Motivazione getMotivazione() {
-//		return motivazione;
-//	}
-//
-//	public void setMotivazione(Motivazione motivazione) {
-//		this.motivazione = motivazione;
-//	}
+
+	public Motivazione getMotivazione() {
+		return motivazione;
+	}
+
+	public void setMotivazione(Motivazione motivazione) {
+		this.motivazione = motivazione;
+	}
 	
 	
 	

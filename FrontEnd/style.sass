@@ -1,0 +1,88 @@
+$primary-color: #504881
+$secondary-color: #c6538c
+$third-color: #c6538c
+
+$darc-gray: #444444
+$gray: #666666
+$light-gray: #888888
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+body
+  font-family: 'Open Sans', 'Helvetica', sans-serif
+  // background: #F8F8F8
+  background: url('../img/hackaton_bg.svg') center center no-repeat 
+  background-size: cover
+
+.card-container 
+  background: #ffffff
+  border-radius: 16px
+  box-shadow: 0 3px 16px rgba(0, 0, 0, .09)
+  box-sizing: border-box
+  max-width: 520px
+  margin: 0 auto
+
+h1, h2, h3
+  font-weight: 600
+  color: $darc-gray
+
+p
+  color: $gray
+
+.bold
+  font-weight: 700
+
+label
+  color: $gray
+
+.btn
+  padding: 14px
+
+.btn-primary
+  background: $primary-color
+  border-color: $primary-color
+  transition: 0.15s
+
+.btn-primary:hover
+  background: $primary-color
+  border-color: $primary-color
+  opacity: 0.9
+  transition: 0.15s
+
+.btn-primary:active
+  background: $primary-color
+  border-color: $primary-color
+
+.btn-outline-primary
+  border-color: $primary-color
+  color: $primary-color
+  transition: 0.15s
+
+.btn-outline-primary:hover
+  background: $primary-color
+  border-color: $primary-color
+  transition: 0.15s
+
+.btn-outline-primary:not(:disabled):not(.disabled):active
+  background: $primary-color
+  border-color: $primary-color
+
+.form-control
+  padding: 24px 14px
+  color: $gray
+
+.flex-center-center-container
+  align-items: center
+  display: flex
+  height: 100vh
+  justify-content: center
+  width: 100vw
+
+.forgot-password
+  color: $primary-color
+
+.forgot-password:hover
+  color: $primary-color

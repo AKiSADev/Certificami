@@ -1,0 +1,110 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', 'Helvetica', sans-serif;
+  background: url("../img/hackaton_bg.svg") center center no-repeat;
+  background-size: cover;
+}
+
+.card-container {
+  background: #ffffff;
+  border-radius: 16px;
+  -webkit-box-shadow: 0 3px 16px rgba(0, 0, 0, 0.09);
+          box-shadow: 0 3px 16px rgba(0, 0, 0, 0.09);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: #444444;
+}
+
+p {
+  color: #666666;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+label {
+  color: #666666;
+}
+
+.btn {
+  padding: 14px;
+}
+
+.btn-primary {
+  background: #504881;
+  border-color: #504881;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.btn-primary:hover {
+  background: #504881;
+  border-color: #504881;
+  opacity: 0.9;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.btn-primary:active {
+  background: #504881;
+  border-color: #504881;
+}
+
+.btn-outline-primary {
+  border-color: #504881;
+  color: #504881;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.btn-outline-primary:hover {
+  background: #504881;
+  border-color: #504881;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active {
+  background: #504881;
+  border-color: #504881;
+}
+
+.form-control {
+  padding: 24px 14px;
+  color: #666666;
+}
+
+.flex-center-center-container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+}
+
+.forgot-password {
+  color: #504881;
+}
+
+.forgot-password:hover {
+  color: #504881;
+}

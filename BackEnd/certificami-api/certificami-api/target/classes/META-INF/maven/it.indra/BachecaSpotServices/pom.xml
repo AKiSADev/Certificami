@@ -15,10 +15,11 @@
 		
 	</parent>
 	
-	<groupId>it.bad_request</groupId>
-	<artifactId>certificami</artifactId>
+	<groupId>it.indra</groupId>
+	<artifactId>BachecaSpotServices</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>certificami-api</name>
+	<name>BachecaSpotServices</name>
+	<description>Gestione back-end del progetto Servizio Bacheca</description>
 
 	<properties>
 	

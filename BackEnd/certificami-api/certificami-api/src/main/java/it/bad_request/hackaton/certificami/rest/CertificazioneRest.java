@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.bad_request.hackaton.certificami.dto.RagioniSpostamento;
@@ -16,9 +17,9 @@ public class CertificazioneRest {
 	@Autowired
 	CertificazioneService certificazioneService;
 
-	
+
 	@PostMapping("/newcertificate")
-	public ResponseEntity<String> createCertification(RagioniSpostamento ragioniSpostamento){
+	public ResponseEntity<String> createCertification(@RequestBody RagioniSpostamento ragioniSpostamento){
 		
 		String response = "KO";
 		HttpStatus http;

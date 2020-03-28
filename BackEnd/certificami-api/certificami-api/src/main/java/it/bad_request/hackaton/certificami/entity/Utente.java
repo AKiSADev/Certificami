@@ -347,6 +347,42 @@ public class Utente implements Serializable {
 
 
 
+	public TipoUtente getTipoUtente() {
+		return tipoUtente;
+	}
+
+
+
+	public void setTipoUtente(TipoUtente tipoUtente) {
+		this.tipoUtente = tipoUtente;
+	}
+
+
+
+	public Documento getTipoDocumento() {
+		return tipoDocumento;
+	}
+
+
+
+	public void setTipoDocumento(Documento tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
+	}
+
+
+
+	public String geteMail() {
+		return eMail;
+	}
+
+
+
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
+	}
+
+
+
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "utente")
 	private List<Certificazione> certificazione;
 

@@ -67,6 +67,7 @@ label
 .btn-outline-primary:hover
   background: $primary-color
   border-color: $primary-color
+  color: #fff !important
   transition: 0.15s
 
 .btn-outline-primary:not(:disabled):not(.disabled):active
@@ -138,3 +139,11 @@ label
   position: absolute
   bottom: 0
   width: 100%
+
+.no-margin-bottom
+  margin-bottom: 0
+
+@media only screen and (max-device-width : 480px)
+
+    .for-height-limitator
+      max-height: 63vh

@@ -1,4 +1,4 @@
-package it.lombardia.hackaton.certificami.rest;
+package it.bad_request.hackaton.certificami.rest;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package it.lombardia.hackaton.certificami.entity;
+package it.bad_request.hackaton.certificami.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;

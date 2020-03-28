@@ -1,4 +1,4 @@
-package it.lombardia.hackaton.certificami.service;
+package it.bad_request.hackaton.certificami.service;
 
 import org.springframework.stereotype.Service;
 

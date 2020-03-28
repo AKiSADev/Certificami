@@ -1,4 +1,4 @@
-package it.lombardia.hackaton.certificami.entity;
+package it.bad_request.hackaton.certificami.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,23 +6,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "conf_tipo_utente")
-public class TipoUtente {
-
+@Table(name = "conf_documenti")
+public class Documento {
 	
 	@Id
-	@Column(name = "id_tipo")
-	private String idTipo;
+	@Column(name = "id_tipo_d")
+	private String idTipoD;
 	
 	@Column(name = "descrizione")
 	private String descrizione;
 
-	public String getIdTipo() {
-		return idTipo;
+	public String getIdTipoD() {
+		return idTipoD;
 	}
 
-	public void setIdTipo(String idTipo) {
-		this.idTipo = idTipo;
+	public void setIdTipoD(String idTipoD) {
+		this.idTipoD = idTipoD;
 	}
 
 	public String getDescrizione() {
@@ -32,7 +31,6 @@ public class TipoUtente {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-	
-	
+
 	
 }

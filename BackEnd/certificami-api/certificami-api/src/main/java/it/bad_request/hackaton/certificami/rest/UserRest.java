@@ -3,6 +3,8 @@ package it.bad_request.hackaton.certificami.rest;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,8 @@ public class UserRest {
 
 	@Autowired
 	UserService userService;
+	
+	private final static Logger log = LoggerFactory.getLogger(UserRest.class);
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	@ResponseBody
@@ -120,19 +124,17 @@ public class UserRest {
 	
 	@RequestMapping(value = "/information", method = RequestMethod.GET)
 	@ResponseBody
-	public ResponseEntity<?> saveInformation(@RequestParam("mail")String mail) {
+	public ResponseEntity<?> saveInformation(@RequestParam("username") String username) {
 		log.info("Recuperando informazioni utente...");
 		try {
-			
-			if(mail==null ) {
-				log.info("Documento:"+data.getDocs());
-				log.info("Documento non valido");
+			if (username == null) {
+				log.info("Username non presente");
 				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-			};
-		
-			Long idUser = userService.saveInformation(data);
-			if (idUser != null) {
-				log.info("Registrazione completata con successo");
+			}
+			;
+			InfoPersonaliDto data = userService.getInformation(username);
+			if (data != null) {
+				log.info("Recupero dati completato con successo");
 				return new ResponseEntity<String>(data.getEmail(),HttpStatus.OK);
 			} else {
 				log.info("Registrazione fallita");

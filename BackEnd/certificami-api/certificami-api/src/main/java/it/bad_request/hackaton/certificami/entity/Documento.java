@@ -11,16 +11,16 @@ public class Documento {
 	
 	@Id
 	@Column(name = "id_tipo_d")
-	private String idTipoD;
+	private Long idTipoD;
 	
 	@Column(name = "descrizione")
 	private String descrizione;
 
-	public String getIdTipoD() {
+	public Long getIdTipoD() {
 		return idTipoD;
 	}
 
-	public void setIdTipoD(String idTipoD) {
+	public void setIdTipoD(Long idTipoD) {
 		this.idTipoD = idTipoD;
 	}
 

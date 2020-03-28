@@ -12,16 +12,16 @@ public class TipoUtente {
 	
 	@Id
 	@Column(name = "id_tipo")
-	private String idTipo;
+	private Long idTipo;
 	
 	@Column(name = "descrizione")
 	private String descrizione;
 
-	public String getIdTipo() {
+	public Long getIdTipo() {
 		return idTipo;
 	}
 
-	public void setIdTipo(String idTipo) {
+	public void setIdTipo(Long idTipo) {
 		this.idTipo = idTipo;
 	}
 

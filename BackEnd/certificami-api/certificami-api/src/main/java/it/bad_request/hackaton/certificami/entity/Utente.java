@@ -66,11 +66,11 @@ public class Utente implements Serializable {
 	@Column(name = "comune_domicilio")
 	private String comuneDomicilio;
 	
-	@Column(name = "tipo_utente")
-	private TipoUtente tipoUtente;
+//	@Column(name = "tipo_utente")
+//	private TipoUtente tipoUtente;
 	
-	@Column(name = "tipo_documento")
-	private Documento tipoDocumento;
+//	@Column(name = "tipo_documento")
+//	private Documento tipoDocumento;
 	
 	@Column(name = "numero_documento")
 	private String numeroDocumento;
@@ -265,27 +265,27 @@ public class Utente implements Serializable {
 
 
 
-	public TipoUtente getTipoUtente() {
-		return tipoUtente;
-	}
+//	public TipoUtente getTipoUtente() {
+//		return tipoUtente;
+//	}
+//
+//
+//
+//	public void setTipoUtente(TipoUtente tipoUtente) {
+//		this.tipoUtente = tipoUtente;
+//	}
 
 
 
-	public void setTipoUtente(TipoUtente tipoUtente) {
-		this.tipoUtente = tipoUtente;
-	}
-
-
-
-	public Documento getTipoDocumento() {
-		return tipoDocumento;
-	}
-
-
-
-	public void setTipoDocumento(Documento tipoDocumento) {
-		this.tipoDocumento = tipoDocumento;
-	}
+//	public Documento getTipoDocumento() {
+//		return tipoDocumento;
+//	}
+//
+//
+//
+//	public void setTipoDocumento(Documento tipoDocumento) {
+//		this.tipoDocumento = tipoDocumento;
+//	}
 
 
 

@@ -12,7 +12,7 @@ public class Motivazione {
 	
 	@Id
 	@Column(name = "id_tipo")
-	private String idMotivazione;
+	private Long idMotivazione;
 	
 	@Column(name = "descrizione")
 	private String descrizione;
@@ -25,11 +25,11 @@ public class Motivazione {
 		this.descrizione = descrizione;
 	}
 
-	public String getIdMotivazione() {
+	public Long getIdMotivazione() {
 		return idMotivazione;
 	}
 
-	public void setIdMotivazione(String idMotivazione) {
+	public void setIdMotivazione(Long idMotivazione) {
 		this.idMotivazione = idMotivazione;
 	}
 	

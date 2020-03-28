@@ -9,32 +9,36 @@
     <meta name="author" content="bad_request">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
+
+    <div class="flex-center-center-container">
       <div class="container p-2 p-md-5">
-            <form class="rounded border border-secondary p-2 p-md-4">
-              <h3 class="ml-2 mb-2 mb-md-3">Login</h3>
-              <div class="form-group">
+            <form class="card-container p-2 p-md-4">
+              <h3 class="ml-2 mb-2 mb-md-3 ">Certificami login</h3>
+              <p class="ml-2 mb-4">Per accedere alla tua autocertificazione inerente agli spostamenti durante COVID-19 inserisci le tue credenziali.</p>
+              <div class="form-group mb-4">
                 <label  class="ml-2"for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
-              <div class="form-group">
+              <div class="form-group mb-4">
                 <label  class="ml-2"for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="exampleInputPassword1">
               </div>
               <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <label class="form-check-label" for="exampleCheck1">Salva la mia password</label>
               </div>
               <div class="row">
-                <div class="col col-12 col-md-6"><a type="submit" href="src/register.html"class="btn btn-outline-secondary btn-block my-2 my-md-1 text-decoration-none">Accedi</a></div>
-                <div class="col col-12 col-md-6"><a type="submit" href="src/register.html"class="btn btn-outline-secondary btn-block my-2 my-md-1 text-decoration-none">Registrati</a></div>
+                <div class="col col-12 col-md-6"><a type="submit" href="src/register.html"class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none">Accedi</a></div>
+                <div class="col col-12 col-md-6"><a type="submit" href="src/register.html"class="btn btn-outline-primary btn-block my-2 my-md-1 text-decoration-none">Registrati</a></div>
               </div>
-                <div class="container text-center p-2 p-md-3">
-                  <a  href="#">Password dimenticata?</a>
+                <div class="container text-center p-2 p-md-4">
+                  <a class="forgot-password" href="#">Password dimenticata?</a>
                 </div>
-            </form>      
+            </form>
       </div>
+    </div>
   </body>
 </html>

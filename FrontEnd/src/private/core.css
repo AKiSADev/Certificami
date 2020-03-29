@@ -1,0 +1,27 @@
+
+.container {
+  width: 100%;
+  text-align: center;
+  padding: 0 0.5rem;
+}
+
+/*Mockup*/
+.qrskele {
+  width: 100%;
+}
+
+
+/*Button*/
+.button {
+  display: block;
+    background: #5B5389;
+    color: white ;
+    text-decoration: none;
+    padding: 15px;
+    border: 1px solid #474169;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+

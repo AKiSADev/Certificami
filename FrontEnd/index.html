@@ -13,11 +13,11 @@
   <body>
 
     <div class="flex-center-center-container">
-      <div class="container p-2 p-md-5">
-            <form class="card-container p-2 p-md-4">
-              <h3 class="ml-2 mb-2 mb-md-3 ">Certificami login</h3>
+      <div class="container p-2 p-md-5 ">
+            <form class="card-container p-2 p-md-4 form-div">
+              <h3 class="ml-2 mb-2 mb-md-3 title">Certificami login</h3>
               <p class="ml-2 mb-4">Per accedere alla tua autocertificazione inerente agli spostamenti durante COVID-19 inserisci le tue credenziali.</p>
-              <div class="form-group mb-4 d-none">
+              <div class="form-group mb-4 register d-none">
                 <label  class="ml-2"for="exampleInputEmail1">Nome Utente</label>
                 <input type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Nome Cognome">
               </div>
@@ -29,7 +29,7 @@
                 <label  class="ml-2"for="exampleInputPassword1">Password</label>
                 <input type="password" class="form-control" id="inputPassword">
               </div>
-              <div class="form-group mb-4 d-none">
+              <div class="form-group mb-4 register d-none">
                 <label  class="ml-2"for="exampleInputPassword1">Repeat Password</label>
                 <input type="password" class="form-control" id="inputPasswordCheck">
               </div>
@@ -49,8 +49,26 @@
                   <a class="forgot-password" href="#">Password dimenticata?</a>
                 </div>
             </form>
-      </div>
-    </div>
+
+            <div class="core container text-center d-none">
+              <h3>La mia autocertificazione</h3>
+              <p>Mostra questo qr code alle forze dell' ordine</p>
+            
+              <div class="qr-container" style="margin: 10vw;">
+                <div id="qrcode">
+                  <img class="qrskele" src="https://image.flaticon.com/icons/png/512/61/61561.png">
+                </div>
+              </div>
+              <script type="text/javascript" src="core.js"></script>
+              <a type="submit" href="src/register.html" class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none">Dati personali</a>
+              <a type="submit" href="src/register.html" class="btn btn-outline-primary btn-block my-2 my-md-1 text-decoration-none">Dati spostamento</a>
+            </div>
+              </div>
+            </div>
+    
   </body>
+  <script type="text/javascript" src="script/jquery.min.js"></script>
+  <script type="text/javascript" src="script/qrcode.min.js"></script>
+
   <script type="text/javascript" src="script/script.js"></script>
 </html>

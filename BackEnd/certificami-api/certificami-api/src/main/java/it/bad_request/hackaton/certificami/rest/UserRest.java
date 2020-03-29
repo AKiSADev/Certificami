@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,7 +33,7 @@ public class UserRest {
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> authenticate(LoginDto data) {
+	public ResponseEntity<?> authenticate(@RequestBody LoginDto data) {
 		log.info("Verificando credenziali...");
 		try {
 			
@@ -63,7 +64,7 @@ public class UserRest {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> register(RegistrazioneDto data) {
+	public ResponseEntity<?> register(@RequestBody RegistrazioneDto data) {
 		log.info("Registrando utente...");
 		try {
 
@@ -96,7 +97,7 @@ public class UserRest {
 	
 	@RequestMapping(value = "/information", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<?> saveInformation(InfoPersonaliDto data) {
+	public ResponseEntity<?> saveInformation(@RequestBody InfoPersonaliDto data) {
 		log.info("Salvando informazioni utente...");
 		try {
 			log.info("Username:" + data.getEmail());

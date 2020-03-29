@@ -13,10 +13,12 @@
   </head>
   <body>
 
+    <div class="logo-container"></div>
+
     <div class="flex-center-center-container public">
       <div class="container p-2 p-md-5 ">
             <form class="card-container p-2 p-md-4 form-div">
-<div class="login-register">
+              <div class="login-register">
               <h3 class="ml-2 mb-2 mb-md-3 title">Certificami login</h3>
               <p class="ml-2 mb-4">Per accedere alla tua autocertificazione inerente agli spostamenti durante COVID-19 inserisci le tue credenziali.</p>
               <div class="form-group mb-4 register d-none">
@@ -41,13 +43,14 @@
                 <label class="form-check-label" for="exampleCheck1">Salva la mia password</label>
               </div>
               <div class="row">
-                <div class="col col-12 col-md-6"><a id="submit" type="submit" class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none">Accedi</a></div>
+                <div class="col col-12 col-md-6"><a id="submit" type="submit" class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none" >Accedi</a></div>
+                <div id="submit-reg" class="col col-12 d-none"><a  type="submit" class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none " onclick="firstRegistration()">Registrati</a></div>
                 <div class="col col-12 col-md-6"><a id="register" type="submit" class="btn btn-outline-primary btn-block my-2 my-md-1 text-decoration-none">Registrati</a></div>
               </div>
                 <div class="container text-center p-2 p-md-4">
                   <a class="forgot-password" href="#">Password dimenticata?</a>
                 </div>
-</div>
+        </div>
 
 
 
@@ -66,7 +69,7 @@
                       </div>
                       <div class="form-group">
                         <label  class="ml-2"for="exampleInputEmail1">Nato il</label>
-                        <input type="date" class="form-control" id="date" aria-describedby="nomeHelp" placeholder="Nome Cognome">
+                        <input type="date" class="form-control" id="bornDate" aria-describedby="nomeHelp" placeholder="Nome Cognome">
                       </div>
                       <div class="form-group">
                         <label  class="ml-2"for="exampleInputEmail1">A</label>
@@ -93,6 +96,10 @@
                         <input type="text" class="form-control" id="docs" aria-describedby="nomeHelp" placeholder="Carta d'identita/patente/passaporto">
                       </div>
                       <div class="form-group">
+                        <label  class="ml-2"for="exampleInputEmail1">Codice documento</label>
+                        <input type="text" class="form-control" id="docsCode" aria-describedby="nomeHelp" placeholder="Codice presente sul documento">
+                      </div>
+                      <div class="form-group">
                         <label  class="ml-2"for="exampleInputEmail1">Rilasciato da</label>
                         <input type="text" class="form-control" id="docsCity" aria-describedby="nomeHelp" placeholder="comune, sindaco, prefetto, motorizzazione">
                       </div>
@@ -107,9 +114,9 @@
                     </div>
                     <div class="tiny-spacer"></div>
                     <div class="flex-container no-margin-bottom">
-                      <a href="../index.html"class="btn btn-outline-primary btn-block my-2 my-md-1 text-decoration-none">Esci</a>
+                      <a href="index.html"class="btn btn-outline-primary btn-block my-2 my-md-1 text-decoration-none" onClick="routeChange('login')">Esci</a>
                       <div class="horizzontal-tiny-spacer"></div>
-                      <a class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none">Avanti</a>
+                      <a class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none" onClick="stepMove(1)">Avanti</a>
                     </div>
                   </div>
   
@@ -120,30 +127,38 @@
                       <p class="important ml-2 mb-4">NB: tutti i campi sono obbligatori</p>
                       <div class="form-group">
                         <label  class="ml-2"for="exampleInputEmail1">Spostamento da</label>
-                        <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Luogo di partenza">
+                        <input type="text" class="form-control" id="moveStreetStart" aria-describedby="nomeHelp" placeholder="Luogo di partenza">
                       </div>
                       <div class="form-group">
                         <label  class="ml-2"for="exampleInputEmail1">Spostamento verso</label>
-                        <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Luogo di arrivo">
+                        <input type="text" class="form-control" id="moveStreetEnd" aria-describedby="nomeHelp" placeholder="Luogo di arrivo">
+                      </div>
+                      <div class="form-group">
+                        <label  class="ml-2"for="exampleInputEmail1">Regione presidente</label>
+                        <input type="text" class="form-control" id="moveRegStart" aria-describedby="nomeHelp" placeholder="Luogo di arrivo">
+                      </div>
+                      <div class="form-group">
+                        <label  class="ml-2"for="exampleInputEmail1">Regione destinazione</label>
+                        <input type="text" class="form-control" id="moveRegEnd" aria-describedby="nomeHelp" placeholder="Luogo di arrivo">
                       </div>
                       <div class="form-group">
                         <label  class="ml-2"for="exampleInputEmail1">Residente in</label>
-                        <input type="text" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Nome città">
+                        <input type="text" class="form-control" id="homeStreet" aria-describedby="nomeHelp" placeholder="Nome città">
                       </div>
                       <div class="form-group">
                         <label  class="ml-2"for="exampleInputEmail1">Motivo dello spostamento</label>
-                        <input type="select" class="form-control" id="nome-cognome" aria-describedby="nomeHelp" placeholder="Es: TN">
+                        <input type="select" class="form-control" id="ragioneOption" aria-describedby="nomeHelp" placeholder="Uno dei motivi">
                       </div>
                       <div class="form-group">
                         <label  class="ml-2"for="exampleInputEmail1">A questo motivo dichiaro di</label>
-                        <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="lavoro presso …, devo effettuare una visita medica, urgente assistenza a congiunti o a persone con disabilità, oesecuzioni di interventi assistenziali in favore di persone in grave stato di necessità, obblighi di affidamento di minori, denunce di reati, rientro dall’estero, altri motivi particolari, etc….)"></textarea>
+                        <textarea class="form-control" name="" id="ragioneOptionText" cols="30" rows="10" placeholder="lavoro presso …, devo effettuare una visita medica, urgente assistenza a congiunti o a persone con disabilità, oesecuzioni di interventi assistenziali in favore di persone in grave stato di necessità, obblighi di affidamento di minori, denunce di reati, rientro dall’estero, altri motivi particolari, etc….)"></textarea>
                       </div>
                     </div>
                     <div class="tiny-spacer"></div>
                     <div class="flex-container no-margin-bottom">
-                      <a class="btn btn-outline-primary btn-block my-2 my-md-1 text-decoration-none">Indietro</a>
+                      <a id="back-one" class="btn btn-outline-primary btn-block my-2 my-md-1 text-decoration-none" onClick="stepMove(0)">Indietro</a>
                       <div class="horizzontal-tiny-spacer"></div>
-                      <a type="submit" href="src/register.html"class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none">Avanti</a>
+                      <a type="submit" class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none" onClick="stepMove(2)">Avanti</a>
                     </div>
                   </div>
   
@@ -181,9 +196,9 @@
 
                       <div class="tiny-spacer"></div>
                       <div class="flex-container no-margin-bottom">
-                        <a class="btn btn-outline-primary btn-block my-2 my-md-1 text-decoration-none">Indietro</a>
+                        <a class="btn btn-outline-primary btn-block my-2 my-md-1 text-decoration-none" onClick="stepMove(1)">Indietro</a>
                         <div class="horizzontal-tiny-spacer"></div>
-                        <a type="submit" class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none">Sottoscrivi</a>
+                        <a type="submit" class="btn btn-primary btn-block my-2 my-md-1 text-decoration-none" onClick="Sottoscrivi()">Sottoscrivi</a>
                       </div>
                     
                     </div>

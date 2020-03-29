@@ -4,7 +4,7 @@ $third-color: #c6538c
 
 $darc-gray: #444444
 $gray: #666666
-$light-gray: #888888
+$light-gray: #999999
 
 *
   box-sizing: border-box
@@ -13,8 +13,17 @@ $light-gray: #888888
 
 body
   font-family: 'Open Sans', 'Helvetica', sans-serif
-  background: url('../img/hackaton_bg.svg') center center no-repeat 
+  background: url('img/hackaton_bg.svg') center center no-repeat
   background-size: cover
+
+.logo-container
+  background-size: cover
+  background: url('img/logo_hackaton.svg') center center no-repeat
+  height: 50px
+  width: 160px
+  position: absolute
+  top: 32px
+  left: 48px
 
 .for-height-limitator
   max-height: 47vh
@@ -77,6 +86,17 @@ label
 .form-control
   padding: 24px 14px
   color: $gray
+
+.form-control::-webkit-input-placeholder
+  color: $light-gray
+.form-control:-moz-placeholder
+  color: $light-gray
+.form-control::-moz-placeholder 
+  color: $light-gray
+.form-control:-ms-input-placeholder
+  color: $light-gray
+.form-control::-ms-input-placeholder 
+  color: $light-gray
 
 .flex-center-center-container
   align-items: center

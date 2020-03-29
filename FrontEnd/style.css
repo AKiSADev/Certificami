@@ -7,8 +7,18 @@
 
 body {
   font-family: 'Open Sans', 'Helvetica', sans-serif;
-  background: url("../img/hackaton_bg.svg") center center no-repeat;
+  background: url("img/hackaton_bg.svg") center center no-repeat;
   background-size: cover;
+}
+
+.logo-container {
+  background-size: cover;
+  background: url("img/logo_hackaton.svg") center center no-repeat;
+  height: 50px;
+  width: 160px;
+  position: absolute;
+  top: 32px;
+  left: 48px;
 }
 
 .for-height-limitator {
@@ -90,6 +100,26 @@ label {
 .form-control {
   padding: 24px 14px;
   color: #666666;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #999999;
+}
+
+.form-control:-moz-placeholder {
+  color: #999999;
+}
+
+.form-control::-moz-placeholder {
+  color: #999999;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #999999;
+}
+
+.form-control::-ms-input-placeholder {
+  color: #999999;
 }
 
 .flex-center-center-container {
@@ -186,31 +216,6 @@ label {
   }
 }
 
-
-
-/*core*/
-
-.container {
-  width: 100%;
-  padding: 0 0.5rem;
-}
-
-/*Mockup*/
 .qrskele {
   width: 100%;
-}
-
-
-/*Button*/
-.button {
-  display: block;
-    background: #5B5389;
-    color: white ;
-    text-decoration: none;
-    padding: 15px;
-    border: 1px solid #474169;
-    border-radius: 5px;
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
 }

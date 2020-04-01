@@ -2,37 +2,39 @@ let state = 'core'
 
 
 
-let sessionData = {
-  	name: "admin admin",
-  	bornDate: "14/12/1915", 
-	bornCity: "Milano", 
-	bornProv: "MI", 
-	homeCity: "Milano", 
-	homeProv: "MI", 
-	homeStreet:"via storti 20", 
-	domCity:"Milano", 
-	domProv:"MI",
-	domStreet:"via baglio 31",
-	docs: "Patente", 
-	docsCode: "AY18478914AW",
-	docsCity:"Milano",
-	docsRelase:"14/12/1999",
-	phone: "3489876542",
-	email:"email@gmail.com"
-}
+// let sessionData = {
+ //  	name: "admin admin",
+ //  	bornDate: "14/12/1915", 
+	// bornCity: "Milano", 
+	// bornProv: "MI", 
+	// homeCity: "Milano", 
+	// homeProv: "MI", 
+	// homeStreet:"via storti 20", 
+	// domCity:"Milano", 
+	// domProv:"MI",
+	// domStreet:"via baglio 31",
+	// docs: "Patente", 
+	// docsCode: "AY18478914AW",
+	// docsCity:"Milano",
+	// docsRelase:"14/12/1999",
+	// phone: "3489876542",
+	// email:"email@gmail.com"
+// }
 
-let moveChunk = {
-	email: "ciao@ciao.com",
-  moveStreetStart:"Via Brazorff 31",
-  moveStreetEnd: "Via cadorna 34",
-  moveRegStart:"Lombardia",
-  moveRegEnd:"Piemonte",
-  ragioneText:"Consegna merci fragili",
-  ragioneOption: 2,// Checkbox 0,1,2,3 
-  ragioneOptionText: "Il mio capo mi licenzia se non vado"
-}
+// let moveChunk = {
+// 	email: "ciao@ciao.com",
+//   moveStreetStart:"Via Brazorff 31",
+//   moveStreetEnd: "Via cadorna 34",
+//   moveRegStart:"Lombardia",
+//   moveRegEnd:"Piemonte",
+//   ragioneText:"Consegna merci fragili",
+//   ragioneOption: 2,// Checkbox 0,1,2,3 
+//   ragioneOptionText: "Il mio capo mi licenzia se non vado"
+// }
 
 
+
+// Login
 
 document.querySelector('#submit').addEventListener('click', e => fetchLogin(e))
 
@@ -48,56 +50,58 @@ fetchLogin = (event) => {
 	    'Content-Type': 'application/json',
 	  },
 	  body: JSON.stringify(loginData),
-	})
-	.then((response) => {if (response.status === 200) {
-		routeChange('info')
-	}
-})
-	.then((data) => {
-	  console.log('Success:', data);
-	})
-	.catch((error) => {
-	  console.error('Error:', error);
-	});
+	}).then((response) => (response.status === 200) ? initSessionData(loginData) : console.log('Login error')
+	).catch((error) => console.error('Error:', error))
 	
-	localStorage.setItem('authSession', JSON.stringify(sessionData.email));
-	var retrievedObject = localStorage.getItem('authSession')
-	console.log('authSession: ', JSON.parse(retrievedObject))
+	
 }
 
+//Register
 firstRegistration = () => {
-
 	if (document.querySelector('#inputPassword').value === document.querySelector('#inputPasswordCheck').value)
 	{ 
+		registerData = {
+			psw: document.querySelector('#inputPassword').value,
+			email: document.querySelector('#inputEmail').value,
+			name: document.querySelector('#inputName').value
+		}
 
-		fetch('http://142.93.103.19:8080/api-certificami/user/register', {
-		  method: 'POST', // or 'PUT'
-		  headers: {
-		    'Content-Type': 'application/json',
-		  },
-		  body: JSON.stringify({
-		  		psw: document.querySelector('#inputPassword').value,
-				email: document.querySelector('#inputEmail').value,
-				name: document.querySelector('#inputName').value
-		  	}),
-		}).then((response) => console.log(response)
-		).catch((err) => console.log(err))
+		if (registerData.psw.length < 7 && registerData.name.length < 1 && registerData.email.lenght < 1 ) {
+			console.log('data too short')
+			return
+		} else {
+			fetch('http://142.93.103.19:8080/api-certificami/user/register', {
+			  method: 'POST',
+			  headers: {'Content-Type': 'application/json',},
+			  body: JSON.stringify(registerData),
+			}).then((response) => (response.status === 200) ? initSessionData(registerData) : console.log('Registrazione error')
+			).catch((err) => console.log(err))}
+				
+		} else {
+			console.log('Le password non corripondono')
+		}
 
-		sessionData.psw = document.querySelector('#inputPassword').value 
-		sessionData.email = document.querySelector('#inputEmail').value
-		sessionData.name = document.querySelector('#inputName').value
 
-		routeChange('info')
-	}
-			else {
+		
+}
 
-				console.log('Le password non corripondono')
-			}
+checkSessionData = (route) => {
+	// Print the saved data
+	var retrievedObject = localStorage.getItem('authSession')
+	console.log('authSession: ', JSON.parse(retrievedObject))
+	routeChange(route)
+}
+
+
+initSessionData = (data) => {
+	localStorage.setItem('authSession', JSON.stringify(data));
+	checkSessionData('info')
+
 }
 
 fetchInformation = (event) => {
 	let infoPersonal = {
-		email: sessionData.email,
+		email: "ciao@ciao.com",
 		bornDate: document.querySelector('#bornDate').value,
 		bornCity: document.querySelector('#bornCity').value,
 		bornProv: document.querySelector('#bornProv').value,
@@ -226,7 +230,7 @@ let moveSession = {
         		document.querySelector('.qrskele').style.display = "none"
                 var qrcode = new QRCode(document.getElementById("qrcode"));
                 makeCode = (hash) => qrcode.makeCode(hash)
-                makeCode(data);
+                makeCode(`google.com?idCert=${data}`);
 
 				localStorage.setItem('qrCode', JSON.stringify(data));
 				var retrievedObject = localStorage.getItem('qrCode')

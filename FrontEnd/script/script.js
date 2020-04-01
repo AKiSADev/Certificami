@@ -2,37 +2,34 @@ let state = 'core'
 
 
 
-// let sessionData = {
- //  	name: "admin admin",
- //  	bornDate: "14/12/1915", 
-	// bornCity: "Milano", 
-	// bornProv: "MI", 
-	// homeCity: "Milano", 
-	// homeProv: "MI", 
-	// homeStreet:"via storti 20", 
-	// domCity:"Milano", 
-	// domProv:"MI",
-	// domStreet:"via baglio 31",
-	// docs: "Patente", 
-	// docsCode: "AY18478914AW",
-	// docsCity:"Milano",
-	// docsRelase:"14/12/1999",
-	// phone: "3489876542",
-	// email:"email@gmail.com"
-// }
-
-// let moveChunk = {
-// 	email: "ciao@ciao.com",
-//   moveStreetStart:"Via Brazorff 31",
-//   moveStreetEnd: "Via cadorna 34",
-//   moveRegStart:"Lombardia",
-//   moveRegEnd:"Piemonte",
-//   ragioneText:"Consegna merci fragili",
-//   ragioneOption: 2,// Checkbox 0,1,2,3 
-//   ragioneOptionText: "Il mio capo mi licenzia se non vado"
-// }
-
-
+let sessionData = {
+    name: "admin admin",
+    bornDate: "14/12/1915",
+    bornCity: "Milano",
+    bornProv: "MI",
+    homeCity: "Milano",
+    homeProv: "MI",
+    homeStreet: "via storti 20",
+    domCity: "Milano",
+    domProv: "MI",
+    domStreet: "via baglio 31",
+    docs: "Patente",
+    docsCode: "AY18478914AW",
+    docsCity: "Milano",
+    docsRelase: "14/12/1999",
+    phone: "3489876542",
+    email: "ciao@ciao.com",
+    moveChunk: {
+        email: "ciao@ciao.com",
+        moveStreetStart: "Via Brazorff 31",
+        moveStreetEnd: "Via cadorna 34",
+        moveRegStart: "Lombardia",
+        moveRegEnd: "Piemonte",
+        ragioneText: "Consegna merci fragili",
+        ragioneOption: 2, // Checkbox 0,1,2,3 
+        ragioneOptionText: "Il mio capo mi licenzia se non vado"
+    }
+}
 
 // Login
 
@@ -55,6 +52,15 @@ fetchLogin = (event) => {
 	
 	
 }
+
+// Morph the login in register
+document.querySelector('#register').addEventListener('click', () => {
+	document.querySelectorAll('.register').forEach(el => el.classList.remove('d-none'))
+	document.querySelectorAll('.col-md-6')[0].classList.remove('col-md-6')
+	document.querySelectorAll('.col-md-6')[0].classList.add('d-none')
+	state = 'register'
+	routeChange('register')
+})
 
 //Register
 firstRegistration = () => {
@@ -79,10 +85,7 @@ firstRegistration = () => {
 				
 		} else {
 			console.log('Le password non corripondono')
-		}
-
-
-		
+		}		
 }
 
 checkSessionData = (route) => {
@@ -99,37 +102,35 @@ initSessionData = (data) => {
 
 }
 
-fetchInformation = (event) => {
-	let infoPersonal = {
-		email: "ciao@ciao.com",
-		bornDate: document.querySelector('#bornDate').value,
-		bornCity: document.querySelector('#bornCity').value,
-		bornProv: document.querySelector('#bornProv').value,
-		homeCity: document.querySelector('#homeCity').value,
-		homeProv: document.querySelector('#homeProv').value,
-		homeStreet: document.querySelector('#homeStreet').value,
-		homeCity: document.querySelector('#homeCity').value,
-		homeProv: document.querySelector('#homeProv').value,
-		homeStreet: document.querySelector('#homeStreet').value,
-		docs: document.querySelector('#docs').value,
-		docsCode: document.querySelector('#docsCode').value,
-		bornCity: document.querySelector('#bornCity').value,
-		docsRelase: document.querySelector('#docsRelase').value,
-		phone: document.querySelector('#phone').value
-	}
+convertDate = (date) => `${date.split('-')[2]}/${date.split('-')[1]}/${date.split('-')[0]}`
 
+
+fetchInformation = (event) => {
+	sessionData.name = document.querySelector('#name').value
+	sessionData.bornDate = convertDate(document.querySelector('#bornDate').value)
+	sessionData.bornCity = document.querySelector('#bornCity').value
+	sessionData.bornProv = document.querySelector('#bornProv').value
+	sessionData.homeCity = document.querySelector('#homeCity').value
+	sessionData.homeProv = document.querySelector('#homeProv').value
+	sessionData.homeStreet = document.querySelector('#homeStreet').value
+	sessionData.domCity = document.querySelector('#homeCity').value
+	sessionData.domProv = document.querySelector('#homeProv').value
+	sessionData.domStreet = document.querySelector('#homeStreet').value
+	sessionData.docs = document.querySelector('#docs').value
+	sessionData.docsCode = document.querySelector('#docsCode').value
+	sessionData.docsCity = document.querySelector('#docsCity').value
+	sessionData.docsRelase = convertDate(document.querySelector('#bornDate').value)
+	sessionData.phone = document.querySelector('#phone').value
+	sessionData.email = document.querySelector('#inputEmail').value
 
 	fetch('http://142.93.103.19:8080/api-certificami/user/information', {
-	  method: 'POST', // or 'PUT'
+	  method: 'POST', 
 	  headers: {
 	    'Content-Type': 'application/json',
 	  },
-	  body: JSON.stringify(infoPersonal),
-	}).then((response) => console.log(response)
+	  body: JSON.stringify(sessionData),
+	}).then((response) => (response.status === 200) ? console.log('ok') : console.log('Registrazione error')
 	).catch((err) => console.log(err))
-	// localStorage.setItem('authSession', JSON.stringify(sessionData.email));
-	// var retrievedObject = localStorage.getItem('authSession') 
-	// console.log('authSession: ', JSON.parse(retrievedObject))
 
 }
 
@@ -162,81 +163,27 @@ routeChange = (route) => {
 	console.log('route: ', route)
 
 }
-
-
-
-
-
-// Morph the login in register
-document.querySelector('#register').addEventListener('click', () => {
-	document.querySelectorAll('.register').forEach(el => el.classList.remove('d-none'))
-	document.querySelectorAll('.col-md-6')[0].classList.remove('col-md-6')
-	document.querySelectorAll('.col-md-6')[0].classList.add('d-none')
-	state = 'register'
-	routeChange('register')
-})
-
-
-// Core
-fetchCode = () => {
-	fetch('https://helloacm.com/api/random/?n=128')
-    .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-        		document.querySelector('.qrskele').style.display = "none"
-                var qrcode = new QRCode(document.getElementById("qrcode"));
-                makeCode = (hash) => qrcode.makeCode(hash)
-                makeCode(data);
-
-				localStorage.setItem('qrCode', JSON.stringify(data));
-				var retrievedObject = localStorage.getItem('qrCode')
-				console.log('qrCode: ', JSON.parse(retrievedObject))
-  		});
-	}
-
-
-var retrievedObject = localStorage.getItem('authSession')
-
-
-
-
-
 // info spostamento 
 
 fetchMove = () => {
-let moveSession = {
-	email: document.querySelector('#inputEmail').value,
-  	moveStreetStart:document.querySelector('#moveStreetStart').value,
-  	moveStreetEnd: document.querySelector('#moveStreetEnd').value,
-  	moveRegStart: document.querySelector('#moveRegStart').value,
-  	moveRegEnd: document.querySelector('#moveRegEnd').value,
-  	ragioneText: 'Ragione urgente standard',
-  	ragioneOption: 0,// Checkbox 0,1,2,3 
-  	ragioneOptionText: document.querySelector('#ragioneOptionText').value
-}
+    sessionData.moveChunk.email = document.querySelector('#inputEmail').value,
+    sessionData.moveChunk.moveStreetStart = document.querySelector('#moveStreetStart').value,
+    sessionData.moveChunk.moveStreetEnd = document.querySelector('#moveStreetEnd').value,
+    sessionData.moveChunk.moveRegStart = document.querySelector('#moveRegStart').value,
+    sessionData.moveChunk.moveRegEnd = document.querySelector('#moveRegEnd').value,
+    sessionData.moveChunk.ragioneText = document.querySelector('#ragioneText').value,
+    sessionData.moveChunk.ragioneOption = document.querySelector('#ragioneOption').value,
+    sessionData.moveChunk.ragioneOptionText = document.querySelector('#ragioneOptionText').value
 
-
-	fetch('http://142.93.103.19:8080/api-certificami/certificate', {
-	  method: 'POST', // or 'PUT'
-	  headers: {
-	    'Content-Type': 'application/json',
-	  },
-	  body: JSON.stringify(moveSession),
-	}).then((response) => {
+    fetch('http://142.93.103.19:8080/api-certificami/certificate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(moveSession),
+        }).then((response) => {
             return response.json();
-        })
-        .then((data) => {
-        		document.querySelector('.qrskele').style.display = "none"
-                var qrcode = new QRCode(document.getElementById("qrcode"));
-                makeCode = (hash) => qrcode.makeCode(hash)
-                makeCode(`google.com?idCert=${data}`);
-
-				localStorage.setItem('qrCode', JSON.stringify(data));
-				var retrievedObject = localStorage.getItem('qrCode')
-				routeChange('core')
-				console.log('qrCode: ', JSON.parse(retrievedObject))
-  		}).catch((err) => console.log(err))
+        }).then((id) => loadCertificationCode(id)).catch((err) => console.log(err))
 }
 
 
@@ -249,4 +196,17 @@ function stepMove (e) {
 function Sottoscrivi () {
 	fetchInformation()
 	fetchMove()
+}
+
+
+loadCertificationCode = (certificationId) => {
+	document.querySelector('.qrskele').style.display = "none"
+    var qrcode = new QRCode(document.getElementById("qrcode"));
+    makeCode = (hash) => qrcode.makeCode(hash)
+    makeCode(`google.com?idCert=${certificationId}`);
+
+	localStorage.setItem('qrCode', JSON.stringify(certificationId));
+	var retrievedObject = localStorage.getItem('qrCode')
+	routeChange('core')
+	console.log('qrCode: ', JSON.parse(retrievedObject))
 }
